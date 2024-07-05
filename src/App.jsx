@@ -70,9 +70,9 @@ const App = () => {
            
               description: res.data.weather[0].description,
             
-            wind: {
+           
               speed: res.data.wind.speed,
-            }
+            
           });
         })
         .catch((error) => {
@@ -93,11 +93,15 @@ const App = () => {
         const forecastData = res.data.list.map(item => ({
           
           // date: new Date().toLocaleString(),
-          date: new Date(item.dt * 1500).toLocaleDateString(),
+          date: new Date(item.dt * 1000).toLocaleDateString(undefined, {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric'
+          }),
           temperature: item.main.temp,
           weatherDescription: item.weather[0].description,
           precipitation: item.rain ? item.rain['3h'] : 0
-        })).filter((item, index) => index % 5 === 0);
+        })).filter((item, index) => index % 8 === 0);
         setForecast(forecastData);
       })
         .catch((error) => {
@@ -114,7 +118,7 @@ const App = () => {
   return (
     <Container>
       <Typography variant="h4" gutterBottom>
-        Weather Dashboard
+        <span className='text-gray-800 p-4 font-mono'>Weather Dashboard</span>
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12}>

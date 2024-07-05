@@ -7,19 +7,19 @@ const CurrentWeatherCard = ({ weather }) => {
     <Card>
       <CardContent>
         <Typography variant="h5" gutterBottom>
-          Current Weather in {weather.name}
+          Current Weather in <span className='text-bold text-3xl font-serif text-blue-500'>{weather.name}</span>
         </Typography>
         <Typography variant="body1">
-          Temperature: {weather.temp} °C
+          Temperature: <span className='text-bold font-serif'>{weather.temp}</span> °C
         </Typography>
         <Typography variant="body1">
-          Humidity: {weather.humidity} %
+          Humidity: <span className='font-mono'>{weather.humidity }</span> %
         </Typography>
         <Typography variant="body1">
-          Wind Speed: <span className='text-green-500'>{weather.wind.speed} </span>m/s
+          Wind Speed: <span className='text-fold font-mono'>{weather.speed} </span>m/s
         </Typography>
         <Typography variant="body1">
-          Conditions: {weather.description}
+          Conditions: <span className='text-bold font-mono'>{weather.description}</span>
         </Typography>
       </CardContent>
     </Card>
